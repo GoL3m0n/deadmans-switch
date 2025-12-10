@@ -131,7 +131,7 @@ type Job struct {
 	filechunk []string
 }
 
-/* use runtime.NumCPU() and assign one proc per cpu */
+
 
 func worker2(jobs <-chan Job, wg *sync.WaitGroup, key []byte) {
 	defer wg.Done()
@@ -167,7 +167,7 @@ func main() {
 
 	close(jobs)
 	wg.Wait()
-	pubKey, err := load_pub_key_to_mem("//keys/public.rsa.pub")
+	pubKey, err := load_pub_key_to_mem("/keys/public.rsa.pub")
 	if err != nil {
 		log.Fatal(err)
 	}
